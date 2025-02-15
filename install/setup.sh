@@ -14,7 +14,7 @@ function check_os {
 
 function install_deps {
   echo "Checking for go..."
-  if ! command -v brew >/dev/null 2>&1; then
+  if ! command -v go >/dev/null 2>&1; then
     echo "Go not found, installing go..."
     brew install go
   else
@@ -22,7 +22,7 @@ function install_deps {
   fi
 
   echo "Checking for git..."
-  if ! command -v brew >/dev/null 2>&1; then
+  if ! command -v go >/dev/null 2>&1; then
       echo "Git not found, installing git..."
       brew install git
     else
