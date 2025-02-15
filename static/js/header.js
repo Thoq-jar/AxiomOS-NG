@@ -1,4 +1,5 @@
 import {getTimeOfDay} from "./lib/date.js";
+import * as settings from "./lib/settings.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const greeting = document.getElementById("greeting");
@@ -10,14 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const resetBtn = document.getElementById('resetBtn');
     const fileInput = document.getElementById('bgUpload');
     const timeOfDay = getTimeOfDay();
-    const savedBg = localStorage.getItem('customBackground');
+    const savedBg = settings.saveBg();
 
     greeting.innerHTML = "AxiomOS";
     greeting.innerHTML += ` - ${timeOfDay}`;
 
-    if(savedBg) {
-        background.style.backgroundImage = `url(${savedBg})`;
-    }
+    if(savedBg) background.style.backgroundImage = `url(${savedBg})`;
 
     uploadBtn.addEventListener('click', () => {
         fileInput.click();
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
             reader.onload = function(e) {
                 const imageData = e.target.result;
                 background.style.backgroundImage = `url(${imageData})`;
-                localStorage.setItem('customBackground', imageData);
+                settings.setSaveBg(imageData);
             };
             reader.readAsDataURL(file);
         }
@@ -38,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resetBtn.addEventListener('click', () => {
         background.style.backgroundImage = 'url("/static/assets/default-bg.jpg")';
-        localStorage.removeItem('customBackground');
+        settings.setSaveBg('/static/assets/default-bg.jpg');
     });
 
     settingsBtn.addEventListener('click', () => {

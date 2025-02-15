@@ -39,11 +39,11 @@
     border: 1px solid #444444;
     border-radius: 8px;
     padding: 0;
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.2);
     color: white;
     max-width: 500px;
     width: 90%;
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(10px);
 }
 
 .settings-modal::backdrop {
@@ -71,6 +71,6 @@
     margin: 20px 0;
 }
 
-.background-controls {
+.control-section {
     gap: 1em;
 }
