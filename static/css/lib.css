@@ -1,0 +1,28 @@
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: default;
+}
+
+.button {
+    border: 1px solid #8a00ec;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(75, 0, 122, 0.7);
+    color: white;
+    font-weight: bold;
+    outline: none;
+    transition: border 0.3s;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.button:hover {
+    border: 1px solid #a72afb;
+    cursor: pointer;
+}
