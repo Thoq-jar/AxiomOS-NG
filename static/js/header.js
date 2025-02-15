@@ -13,21 +13,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const timeOfDay = getTimeOfDay();
     const savedBg = settings.saveBg();
 
-    greeting.innerHTML = "AxiomOS";
-    greeting.innerHTML += ` - ${timeOfDay}`;
-
-    if(savedBg) background.style.backgroundImage = `url(${savedBg})`;
+    setup(greeting, timeOfDay, savedBg, background);
 
     uploadBtn.addEventListener('click', () => {
         fileInput.click();
     });
 
-    fileInput.addEventListener('change', function(e) {
-        const file = e.target.files[0];
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+
         if(file) {
             const reader = new FileReader();
-            reader.onload = function(e) {
-                const imageData = e.target.result;
+            reader.onload = () => {
+                const imageData = event.target.result;
                 background.style.backgroundImage = `url(${imageData})`;
                 settings.setSaveBg(imageData);
             };
@@ -60,3 +58,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+function setup(greeting, timeOfDay, savedBg, background) {
+    renderGreeting(greeting, timeOfDay);
+    setInterval(() => renderGreeting(greeting, timeOfDay), 10000);
+    if(savedBg) background.style.backgroundImage = `url(${savedBg})`;
+}
+
+function renderGreeting(greeting, timeOfDay) {
+    greeting.innerHTML = "AxiomOS";
+    greeting.innerHTML += ` - ${timeOfDay}`;
+
+}

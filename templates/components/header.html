@@ -4,7 +4,10 @@
 <script src="/static/js/header.js" type="module" defer></script>
 
 <header class="site-header">
-    <h1 class="greeting no-select" id="greeting">AxiomOS</h1>
+    <h1 class="greeting no-select" id="greeting">
+        AxiomOS
+    </h1>
+
     <button class="settings-btn" id="settingsBtn">
         <img src="/static/assets/icons/settings-cog.svg" alt="Settings">
     </button>
@@ -16,20 +19,37 @@
         <div class="settings-section">
             <h3 class="no-select">Background</h3>
             <div class="control-section">
-                <input type="file" id="bgUpload" accept="image/*" style="display: none">
-                <button id="uploadBtn" class="button">Change Background</button>
-                <button id="resetBtn" class="button">Reset to Default</button>
+                <input type="file"
+                       id="bgUpload"
+                       accept="image/*"
+                       style="display: none"
+                >
+
+                <button id="uploadBtn" class="button">
+                    Change Background
+                </button>
+
+                <button id="resetBtn" class="button">
+                    Reset to Default
+                </button>
             </div>
         </div>
 
         <div class="settings-section">
-            <h3 class="no-select">Background</h3>
+            <h3 class="no-select">
+                Widgets
+            </h3>
+
             <div class="control-section">
-                <button id="toggleMilitaryTime" class="button"></button>
+                <button id="toggleMilitaryTime" class="button">
+                    24h Time
+                </button>
             </div>
         </div>
 
-        <button class="button" id="closeSettings">Close</button>
+        <button class="button" id="closeSettings">
+            Close
+        </button>
     </div>
 </dialog>
 {{end}}

@@ -9,9 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function renderTime(widget) {
     const date = new Date();
+    const isMilitaryTime = militaryTime();
 
-    widget.innerHTML = militaryTime() ?
-        `${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}`: date.toLocaleTimeString([], {
+    widget.innerHTML = isMilitaryTime ?
+        `${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}` :
+        date.toLocaleTimeString([], {
             hour: 'numeric',
             minute: '2-digit'
         });

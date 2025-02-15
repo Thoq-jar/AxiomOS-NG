@@ -1,0 +1,53 @@
+{{define "shellWidget"}}
+<link rel="stylesheet" href="/static/css/widgetBase.css">
+<script src="/static/js/widgets/shell.js" type="module" defer></script>
+
+<div class="widget">
+    <div id="shellOutput" class="shell-output"></div>
+    <label for="shellInput"></label>
+    <input type="text"
+           id="shellInput"
+           placeholder="Run sell commands here"
+           spellcheck="false"
+           autocomplete="off"
+           autocapitalize="off"
+    >
+</div>
+
+<style>
+    .widget {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        max-width: 60%;
+        margin: 0 auto;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    input {
+        width: calc(100% - 30px);
+        background: transparent;
+        color: #cdcdcd;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        font-family: monospace;
+        padding: 5px 20px;
+        margin: 0;
+    }
+
+    .shell-output {
+        color: #cdcdcd;
+        font-family: monospace;
+        font-size: 16px;
+        padding: 5px 20px;
+        white-space: pre-wrap;
+        max-height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        margin: 0;
+        width: calc(100% - 40px);
+    }
+</style>
+{{end}}
