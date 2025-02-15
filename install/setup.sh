@@ -3,7 +3,7 @@
 set -e
 set -e pipefail
 
-function check_os()() {
+function check_os() {
   if command -v brew >/dev/null 2>&1; then
     echo "Found: brew (Homebrew)"
   else
