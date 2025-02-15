@@ -3,7 +3,7 @@
 set -e
 set -e pipefail
 
-function check_os() {
+function check_os {
   if command -v brew >/dev/null 2>&1; then
     echo "Found: brew (Homebrew)"
   else
@@ -12,7 +12,7 @@ function check_os() {
   fi
 }
 
-function install_deps() {
+function install_deps {
   echo "Checking for go..."
   if ! command -v brew >/dev/null 2>&1; then
     echo "Go not found, installing go..."
@@ -30,7 +30,7 @@ function install_deps() {
     fi
 }
 
-function install_axiom() {
+function install_axiom {
   cd $HOME
   mkdir $HOME/.axiom_os
   git clone https://github.com/Thoq-jar/AxiomOS-NG.git $HOME/.axiom_os
@@ -42,18 +42,18 @@ function install_axiom() {
   suco chmod +x /usr/local/bin/axiom_os
 }
 
-function main() {
+function main {
   echo "Welcome to the AxiomOS installer!"
   echo "This may take a while, feel free to go get a drink, sit back and relax while we work out magic!"
   echo "Installation will being in 3s..."
   sleep 3
   echo "Checking deps..."
 
-  check_os()
-  install_deps()
-  install_axiom()
+  check_os
+  install_deps
+  install_axiom
 
   echo "Done! To run, run: 'axiom_os' in your terminal!"
 }
 
-maim()
+main
