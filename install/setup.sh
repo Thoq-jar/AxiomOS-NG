@@ -32,14 +32,20 @@ function install_deps {
 
 function install_axiom {
   cd $HOME
-  mkdir $HOME/.axiom_os
-  git clone https://github.com/Thoq-jar/AxiomOS-NG.git $HOME/.axiom_os
-  cd $HOME/.axiom_os
+  if [ ! -d $HOME/.axiom_os ]; then
+    git clone https://github.com/Thoq-jar/AxiomOS-NG.git $HOME/.axiom_os
+    cd $HOME/.axiom_os
+  else
+    cd $HOME/.axiom_os
+    git pull
+  fi
+
   go build src/main.go
 
   echo "Almost done! Now we just need sudo to install the command: 'axiom_os' into your terminal!"
-  sudo cat "go run $HOME/.axiom_os/src/main.go" > /usr/local/bin/axiom_os
-  suco chmod +x /usr/local/bin/axiom_os
+  mkdir -p $HOME/bin/
+  echo "cd $HOME/.axiom_os; go run $HOME/.axiom_os/src/main.go" > $HOME/bin/axiom_os
+  chmod +x $HOME/bin/axiom_os
 }
 
 function main {
@@ -53,7 +59,7 @@ function main {
   install_deps
   install_axiom
 
-  echo "Done! To run, run: 'axiom_os' in your terminal!"
+  echo "Done! To run, run: '~/bin/axiom_os' in your terminal!"
 }
 
 main
