@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const date = new Date();
     const widget = document.getElementById('timeWidget');
 
+    renderTime(widget, date);
     setTimeout(() => renderTime(widget, date), 1000)
 })
 
